@@ -1,54 +1,56 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-        <div class="cv-section__block--left cv-section__block">
-          
-          <div class="cv-section__block-inner cv-section__personal-main">
-            <div class="cv-section__personal-main-photo">
-              <img src="./assets/willi-photo.jpg" class="img-responsive" alt="">
+  <div id="app">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+          <div class="cv-section__block--left cv-section__block">
+            
+            <div class="cv-section__block-inner cv-section__personal-main">
+              <div class="cv-section__personal-main-photo">
+                <img src="./assets/willi-photo.jpg" class="img-responsive" alt="">
+              </div>
+              <div class="cv-block__wrapper-name cv-block__wrapper">
+                <h1 class="cv-block-name">willi</h1>
+              </div>
+              <div class="cv-block__wrapper-position cv-block__wrapper">
+                <h4 class="cv-block-position">web developer</h4>
+              </div>
+              <div class="cv-block__wrapper cv-block__wrapper-phone">
+                <h4 class="cv-block-phone">+62 857 2030 8893</h4>
+              </div>
+              <div class="cv-block__wrapper cv-block__wrapper-address">
+                <h4 class="cv-block-address">Kawista no. 3 Cigadung Bandung</h4>
+              </div>
+              <div class="cv-block__wrapper cv-block__wrapper-email">
+                <h4 class="cv-block-email">willi.ilmukomputer@gmail.com</h4>
+              </div>
+              <div class="cv-block__wrapper cv-block__wrapper-linkedin">
+                <h4 class="cv-block-linkedin">https://id.linkedin.com/in/willidev</h4>
+              </div>
+              <div class="cv-block__wrapper cv-block__wrapper-github">
+                <h4 class="cv-block-github">https://github.com/willi-dev</h4>
+              </div>
             </div>
-            <div class="cv-block__wrapper-name cv-block__wrapper">
-              <h1 class="cv-block-name">willi</h1>
-            </div>
-            <div class="cv-block__wrapper-position cv-block__wrapper">
-              <h4 class="cv-block-position">web developer</h4>
-            </div>
-            <div class="cv-block__wrapper cv-block__wrapper-phone">
-              <h4 class="cv-block-phone">+62 857 2030 8893</h4>
-            </div>
-            <div class="cv-block__wrapper cv-block__wrapper-address">
-              <h4 class="cv-block-address">Kawista no. 3 Cigadung Bandung</h4>
-            </div>
-            <div class="cv-block__wrapper cv-block__wrapper-email">
-              <h4 class="cv-block-email">willi.ilmukomputer@gmail.com</h4>
-            </div>
-            <div class="cv-block__wrapper cv-block__wrapper-linkedin">
-              <h4 class="cv-block-linkedin">https://id.linkedin.com/in/willidev</h4>
-            </div>
-            <div class="cv-block__wrapper cv-block__wrapper-github">
-              <h4 class="cv-block-github">https://github.com/willi-dev</h4>
-            </div>
+
+            <personalDetail></personalDetail>
+
+            <education></education>
+
+            <skills></skills>
+
+            <training></training>
+
+          </div>  
+        </div>
+
+        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+          <div class="cv-section__block--right cv-section__block">
+            
+            <workExperience></workExperience>
+
+            <publication></publication>
+
           </div>
-
-          <personalDetail></personalDetail>
-
-          <education></education>
-
-          <skills></skills>
-
-          <training></training>
-
-        </div>  
-      </div>
-
-      <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
-        <div class="cv-section__block--right cv-section__block">
-          
-          <workExperience></workExperience>
-
-          <publication></publication>
-
         </div>
       </div>
     </div>
