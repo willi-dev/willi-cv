@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
           <div class="cv-section__block--left cv-section__block">
-            
+            <!-- <bounce-loader :loading="loading" :color="color" :size="size"></bounce-loader> -->
             <div class="cv-section__block-inner cv-section__personal-main">
               <div class="cv-section__personal-main-photo">
                 <img src="./assets/willi-photo.jpg" class="img-responsive" alt="">
@@ -31,14 +31,16 @@
                 <h4 class="cv-block-github">https://github.com/willi-dev</h4>
               </div>
             </div>
+            
+            <!-- <bounce-loader :loading="loading" :color="color" :size="size"></bounce-loader> -->
 
-            <personalDetail></personalDetail>
+            <personal-detail :personal="personal"></personal-detail>
 
-            <education></education>
+            <education :education="education"></education>
 
-            <skills></skills>
+            <skills :skills="skills"></skills>
 
-            <training></training>
+            <training :training="training"></training>
 
           </div>  
         </div>
@@ -46,9 +48,9 @@
         <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
           <div class="cv-section__block--right cv-section__block">
             
-            <workExperience></workExperience>
+            <workExperience :work="work"></workExperience>
 
-            <publication></publication>
+            <publication :publication="publication"></publication>
 
           </div>
         </div>
@@ -58,6 +60,7 @@
 </template>
 
 <script>
+import Firebase from '../node_modules/firebase';
 import PersonalDetail from './components/PersonalDetail';
 import Education from './components/Education';
 import Skills from './components/Skills';
@@ -65,17 +68,23 @@ import Training from './components/Training';
 import WorkExperience from './components/WorkExperience';
 import Publication from './components/Publication';
 
-// const configFirebase = {
-//   apiKey: 'AIzaSyCTn5KIYAtumc2AL_fCNj_n_CZ02pKAQj4',
-//   authDomain: 'willi-3de27.firebaseapp.com',
-//   databaseURL: 'https://willi-3de27.firebaseio.com',
-//   storageBucket: 'willi-3de27.appspot.com',
-//   messagingSenderId: '19575266674',
-//   projectId: 'willi-3de27',
-// };
+const config = {
+  apiKey: 'AIzaSyCTn5KIYAtumc2AL_fCNj_n_CZ02pKAQj4',
+  authDomain: 'willi-3de27.firebaseapp.com',
+  databaseURL: 'https://willi-3de27.firebaseio.com',
+  storageBucket: 'willi-3de27.appspot.com',
+  messagingSenderId: '19575266674',
+  projectId: 'willi-3de27',
+};
 
-// const app = Firebase.initializeApp(configFirebase);
-// const db = app.database();
+const app = Firebase.initializeApp(config);
+const db = app.database();
+const dataPersonalDetail = db.ref('personal_detail');
+const dataEducation = db.ref('education');
+const dataSkills = db.ref('skills');
+const dataTraining = db.ref('training');
+const dataWork = db.ref('work_experience');
+const dataPublication = db.ref('publication');
 
 export default {
   name: 'app',
@@ -86,6 +95,35 @@ export default {
     training: Training,
     workExperience: WorkExperience,
     publication: Publication,
+  },
+  firebase: {
+    personal: {
+      source: dataPersonalDetail,
+    },
+    education: {
+      source: dataEducation,
+    },
+    skills: {
+      source: dataSkills,
+    },
+    training: {
+      source: dataTraining,
+    },
+    work: {
+      source: dataWork,
+    },
+    publication: {
+      source: dataPublication,
+    },
+  },
+  data() {
+    return {
+      color: '#cc181e',
+      color1: '#5bc0de',
+      size: '45px',
+      margin: '2px',
+      radius: '2px',
+    };
   },
 };
 </script>
