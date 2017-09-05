@@ -7,7 +7,7 @@
             <!-- <bounce-loader :loading="loading" :color="color" :size="size"></bounce-loader> -->
             <div class="cv-section__block-inner cv-section__personal-main">
               <div class="cv-section__personal-main-photo">
-                <img src="./assets/willi-photo.jpg" class="img-responsive" alt="">
+                <img src="./assets/photo.jpg" class="img-responsive" alt="">
               </div>
               <div class="cv-block__wrapper-name cv-block__wrapper">
                 <h1 class="cv-block-name">willi</h1>
@@ -34,13 +34,13 @@
             
             <!-- <bounce-loader :loading="loading" :color="color" :size="size"></bounce-loader> -->
 
-            <personal-detail :personal="personal"></personal-detail>
+            <personal-detail :personal="personal" :personalLoaded="personalLoaded"></personal-detail>
 
-            <education :education="education"></education>
+            <education :education="education" :eduLoaded="eduLoaded"></education>
 
-            <skills :skills="skills"></skills>
+            <skills :skills="skills" :skillLoaded="skillLoaded"></skills>
 
-            <training :training="training"></training>
+            <training :training="training" :trainingLoaded="trainingLoaded"></training>
 
           </div>  
         </div>
@@ -48,9 +48,9 @@
         <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
           <div class="cv-section__block--right cv-section__block">
             
-            <workExperience :work="work"></workExperience>
+            <workExperience :work="work" :workLoaded="workLoaded"></workExperience>
 
-            <publication :publication="publication"></publication>
+            <publication :publication="publication" :publicationLoaded="publicationLoaded"></publication>
 
           </div>
         </div>
@@ -60,6 +60,7 @@
 </template>
 
 <script>
+// import PulseLoader from '../node_modules/vue-spinner/src/PulseLoader';
 import Firebase from '../node_modules/firebase';
 import PersonalDetail from './components/PersonalDetail';
 import Education from './components/Education';
@@ -99,30 +100,49 @@ export default {
   firebase: {
     personal: {
       source: dataPersonalDetail,
+      readyCallback: function personalReady() {
+        this.personalLoaded = true;
+      },
     },
     education: {
       source: dataEducation,
+      readyCallback: function educationReady() {
+        this.eduLoaded = true;
+      },
     },
     skills: {
       source: dataSkills,
+      readyCallback: function skillsReady() {
+        this.skillLoaded = true;
+      },
     },
     training: {
       source: dataTraining,
+      readyCallback: function trainingReady() {
+        this.trainingLoaded = true;
+      },
     },
     work: {
       source: dataWork,
+      readyCallback: function workReady() {
+        this.workLoaded = true;
+      },
     },
     publication: {
       source: dataPublication,
+      readyCallback: function publicationReady() {
+        this.publicationLoaded = true;
+      },
     },
   },
   data() {
     return {
-      color: '#cc181e',
-      color1: '#5bc0de',
-      size: '45px',
-      margin: '2px',
-      radius: '2px',
+      personalLoaded: false,
+      eduLoaded: false,
+      skillLoaded: false,
+      trainingLoaded: false,
+      workLoaded: false,
+      publicationLoaded: false,
     };
   },
 };
@@ -134,6 +154,32 @@ export default {
 
   // always load in every component for read variables
   @import './assets/scss/cv-variables.scss';
+
+  .list-item {
+    // display: inline-block;
+    // margin-right: 10px;
+  }
+  .list-enter-active, .list-leave-active {
+    transition: all 1s;
+  }
+  .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  .cv-container__loader{
+    position: relative;
+    height: 100px;
+    width: 100%;
+  }
+  .v-spinner{
+    width: 20%;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
 
   .cv{
     margin-top: 20px;
