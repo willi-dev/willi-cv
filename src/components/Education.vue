@@ -5,7 +5,7 @@
         <beat-loader></beat-loader>
       </div>
       <transition-group name="list" tag="div">
-        <div v-for="edu in education" v-bind:key="edu" class="list-item">
+        <div v-for="edu in education" v-bind:key="edu.school" class="list-item">
           <div class="cv-block__wrapper cv-block__wrapper-school">
             <h4 class="cv-block-school cv-block-text">
               {{edu.school}}
