@@ -4,7 +4,6 @@
       <div class="row">
         <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
           <div class="cv-section__block--left cv-section__block">
-            <!-- <bounce-loader :loading="loading" :color="color" :size="size"></bounce-loader> -->
             <div class="cv-section__block-inner cv-section__personal-main">
               <div class="cv-section__personal-main-photo">
                 <img src="./assets/photo.jpg" class="img-responsive" alt="">
@@ -31,27 +30,18 @@
                 <h4 class="cv-block-github">https://github.com/willi-dev</h4>
               </div>
             </div>
-            
-            <!-- <bounce-loader :loading="loading" :color="color" :size="size"></bounce-loader> -->
-
             <personal-detail :personal="personal" :personalLoaded="personalLoaded"></personal-detail>
-
             <education :education="education" :eduLoaded="eduLoaded"></education>
-
             <skills :skills="skills" :skillLoaded="skillLoaded"></skills>
-
             <training :training="training" :trainingLoaded="trainingLoaded"></training>
-
           </div>  
         </div>
-
         <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
           <div class="cv-section__block--right cv-section__block">
             
             <workExperience :work="work" :workLoaded="workLoaded"></workExperience>
 
             <publication :publication="publication" :publicationLoaded="publicationLoaded"></publication>
-
           </div>
         </div>
       </div>
@@ -60,7 +50,6 @@
 </template>
 
 <script>
-// import PulseLoader from '../node_modules/vue-spinner/src/PulseLoader';
 import Firebase from '../node_modules/firebase';
 import PersonalDetail from './components/PersonalDetail';
 import Education from './components/Education';
@@ -68,6 +57,7 @@ import Skills from './components/Skills';
 import Training from './components/Training';
 import WorkExperience from './components/WorkExperience';
 import Publication from './components/Publication';
+import VueSticky from '../node_modules/vue-sticky';
 
 const config = {
   apiKey: 'AIzaSyCTn5KIYAtumc2AL_fCNj_n_CZ02pKAQj4',
@@ -143,7 +133,14 @@ export default {
       trainingLoaded: false,
       workLoaded: false,
       publicationLoaded: false,
+      stickyConfig: {
+        zIndex: 100,
+        stickyTop: 20,
+      },
     };
+  },
+  directives: {
+    sticky: VueSticky,
   },
 };
 </script>
@@ -192,6 +189,9 @@ export default {
       &--left{
         .cv-section__block-title{
           text-align: right;
+          @media screen and (max-width: 767px){
+            text-align: left;
+          }
         }
       }
       &--right{

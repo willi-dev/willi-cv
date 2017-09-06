@@ -42,15 +42,24 @@ export default {
     &-section__personal-main-photo{
       text-align: right;
       margin-bottom: 1rem;
+      @media screen and (max-width: 767px){
+        text-align: center;
+      }
       img{
         width:60%;
         display: inline;
+        @media screen and (max-width: 767px){
+          width: 100%;
+        }
       }
     }
 
     &-section__personal-main{
       text-align: right;
       font-family: $raleway;
+      @media screen and (max-width: 767px){
+        text-align: center;
+      }
       .cv-block__wrapper{
 
       }
@@ -64,7 +73,6 @@ export default {
       .cv-block-position{
         font-weight: $light;
         font-size: 6rem;
-        // line-height: .5;
         margin-top:0;
         margin-bottom:0;
       }
@@ -82,6 +90,9 @@ export default {
 
     &-section__personal-detail{
       text-align: right;
+      @media screen and (max-width: 767px){
+        text-align: left;
+      }
       .cv-block__wrapper{
         font-family: $raleway;
         color: $greylight-2;
@@ -94,7 +105,7 @@ export default {
         line-height: .8;
         .value{
           font-weight: $bold;
-          color: $black;
+          color: $greydark;
         }
       }
     }

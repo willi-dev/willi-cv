@@ -40,6 +40,9 @@ export default {
     &-section__skills{
       text-align: right;
       font-family: $raleway;
+      @media screen and (max-width: 767px){
+        text-align: left;
+      }
       .cv-block__wrapper{
         font-family: $raleway;
         color: $black;

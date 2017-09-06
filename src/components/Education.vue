@@ -44,6 +44,9 @@ export default {
   .cv{
     &-section__education{
       text-align: right;
+      @media screen and (max-width: 767px){
+        text-align: left;
+      }
       .cv-block__wrapper{
         font-family: $raleway;
         color: $black;

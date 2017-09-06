@@ -35,6 +35,9 @@ export default {
 		&-section__training{
 			text-align: right;
 			font-family: $raleway;
+			@media screen and (max-width: 767px){
+        text-align: left;
+      }
 			.cv-block__wrapper{
 				font-family: $raleway;
 				color: $greylight-3;
