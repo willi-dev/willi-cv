@@ -1,6 +1,7 @@
 # willi-cv
 
 > display curriculum vitae of willi. use vue js 2.0
+> result: http://willi-dev.github.io/cv/
 
 ## Build Setup
 
