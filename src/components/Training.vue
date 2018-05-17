@@ -10,7 +10,7 @@
 	    		<h4 class="cv-block-training-name cv-block-text">{{train.name}}</h4>
 	    	</div>
 	    	<div class="cv-block__wrapper cv-block__wrapper-training-year">
-	    		<h4 class="cv-block-training-year cv-block-text">{{train.place_year}}</h4>
+	    		<h4 class="cv-block-training-year cv-block-text">{{train.place}} ( {{train.year}} )</h4>
 	    	</div>
 	    </div>
 	  </transition-group>

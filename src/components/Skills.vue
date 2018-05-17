@@ -5,16 +5,10 @@
       <beat-loader></beat-loader>
     </div>
     <transition-group name="list" tag="div">
-      <div v-for="skill in skills" v-bind:key="skill.main_skills" class="list-item">
+      <div v-for="sk in skills" v-bind:key="sk.skill" class="list-item">
         <div class="cv-block__wrapper cv-block__wrapper-skills-main">
           <h4 class="cv-block-skills-main cv-block-text">
-            {{skill.main_skills}}
-          </h4>
-        </div>
-        <div class="cv-block__wrapper cv-block__wrapper-skills-related">
-          <h3 class="cv-block-skills-related-title cv-block-text">Related Development Tools</h3>
-          <h4 class="cv-block-skills-related cv-block-text">
-            {{skill.related_tools}}
+            {{sk.skill}}
           </h4>
         </div>
       </div>

@@ -5,7 +5,7 @@
 			<beat-loader></beat-loader>
     </div>
     <transition-group name="list" tag="div">
-      <div v-for="exp in work" :key="exp.position" class="list-item">
+      <div v-for="exp in work" :key="exp.company" class="list-item">
         <div class="cv-block__wrapper cv-block__wrapper-company">
           <h4 class="cv-block-company cv-block-text">{{exp.position}} | {{exp.company}} <span class="duration">{{exp.period}}</span></h4>  
         </div>
