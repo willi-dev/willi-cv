@@ -5,23 +5,9 @@
 			<beat-loader></beat-loader>
     </div>
     <transition-group name="list" tag="div">
-      <div v-for="exp in work" :key="exp.position" class="list-item">
+      <div v-for="exp in work" :key="exp.company" class="list-item">
         <div class="cv-block__wrapper cv-block__wrapper-company">
-          <h4 class="cv-block-company cv-block-text">{{exp.position}} | {{exp.company}} <span class="duration">{{exp.duration}}</span></h4>  
-        </div>
-        <!-- {{ exp.projects }} -->
-        <div v-for="(proj, index) in exp.projects" class="cv-block__wrapper cv-block__wrapper-projects">
-          <div v-for="(projitem, key) in proj">
-            <div v-if="key=='title'" class="cv-block__wrapper cv-block__wrapper-project-title">
-              <h4 class="cv-block-project-title cv-block-text">Project: {{projitem}}</h4>
-            </div> 
-            <div v-if="key=='desc'" class="cv-block__wrapper cv-block__wrapper-project-desc">
-              <h4 class="cv-block-project-desc cv-block-text">{{projitem}}</h4>
-            </div>
-            <div v-if="key=='url'" v-show="projitem!='-'" class="cv-block__wrapper cv-block__wrapper-project-url">
-              <h4 class="cv-block-project-url cv-block-text">{{projitem}}</h4>
-            </div>
-          </div>
+          <h4 class="cv-block-company cv-block-text">{{exp.position}} | {{exp.company}} <span class="duration">{{exp.period}}</span></h4>  
         </div>
       </div>
     </transition-group>

@@ -13,12 +13,12 @@
           </div>
           <div class="cv-block__wrapper cv-block__wrapper-eduyear">
             <h4 class="cv-block-edu-year cv-block-text">
-              {{edu.year}}    
+              {{edu.period}}    
             </h4>
           </div>
           <div v-if=" edu.department!='-' "class="cv-block__wrapper cv-block__wrapper-department">
             <h4 class="cv-block-departement cv-block-text">
-              {{edu.department}}
+              {{edu.description}}
             </h4>
           </div>
         </div>

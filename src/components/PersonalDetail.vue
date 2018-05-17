@@ -5,9 +5,9 @@
       <beat-loader></beat-loader>
     </div>
     <transition-group name="list" tag="div">
-      <div v-for="person in personal" v-bind:key="person.placedatebirth" class="list-item">
+      <div v-for="person in personal" v-bind:key="person.dateOfBirth" class="list-item">
         <div class="cv-block__wrapper cv-block__wrapper-placedatebirth">
-          <h4 class="cv-block-placedatebirth cv-block-text">Place, Date of Birth <span class="value">{{person.placedatebirth}}</span></h4>
+          <h4 class="cv-block-placedatebirth cv-block-text">Place, Date of Birth <span class="value">{{person.placeBirth}}, {{person.dateOfBirth}}</span></h4>
         </div>
         <div class="cv-block__wrapper cv-block__wrapper-gender">
           <h4 class="cv-block-gender cv-block-text">Gender <span class="value">{{person.gender}}</span></h4>
