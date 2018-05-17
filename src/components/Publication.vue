@@ -5,15 +5,10 @@
       <beat-loader></beat-loader>  
     </div>
     <transition-group name="list" tag="div">
-      <div v-for="p in publication" v-bind:key="p.type" class="list-item">
+      <div v-for="p in publication" v-bind:key="p.publication" class="list-item">
         <div class="cv-block__wrapper cv-block__wrapper-publication-type">
           <h4 class="cv-block-publication-type cv-block-text">
-            {{p.type}}
-          </h4>
-        </div>
-        <div class="cv-block__wrapper cv-block__wrapper-publication-title">
-          <h4 class="cv-block-publication-title cv-block-text">
-            {{p.title}}
+            {{p.publication}}
           </h4>
         </div>
         <div class="cv-block__wrapper cv-block__wrapper-publication-description">
@@ -23,7 +18,7 @@
         </div>
         <div class="cv-block__wrapper cv-block__wrapper-publication-url">
           <h4 class="cv-block-publication-url cv-block-text">
-            {{p.url}}
+            {{p.link}}
           </h4>
         </div>
       </div>

@@ -38,9 +38,7 @@
         </div>
         <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
           <div class="cv-section__block--right cv-section__block">
-            
             <workExperience :work="work" :workLoaded="workLoaded"></workExperience>
-
             <publication :publication="publication" :publicationLoaded="publicationLoaded"></publication>
           </div>
         </div>
@@ -59,13 +57,22 @@ import WorkExperience from './components/WorkExperience';
 import Publication from './components/Publication';
 import VueSticky from '../node_modules/vue-sticky';
 
+// const config = {
+//   apiKey: 'AIzaSyCTn5KIYAtumc2AL_fCNj_n_CZ02pKAQj4',
+//   authDomain: 'willi-3de27.firebaseapp.com',
+//   databaseURL: 'https://willi-3de27.firebaseio.com',
+//   storageBucket: 'willi-3de27.appspot.com',
+//   messagingSenderId: '19575266674',
+//   projectId: 'willi-3de27',
+// };
+
 const config = {
-  apiKey: 'AIzaSyCTn5KIYAtumc2AL_fCNj_n_CZ02pKAQj4',
-  authDomain: 'willi-3de27.firebaseapp.com',
-  databaseURL: 'https://willi-3de27.firebaseio.com',
-  storageBucket: 'willi-3de27.appspot.com',
-  messagingSenderId: '19575266674',
-  projectId: 'willi-3de27',
+  apiKey: 'AIzaSyDdPKeAue0qqpDMj7sbqGY9IgRolAe_FkI',
+  authDomain: 'willicv-8d052.firebaseapp.com',
+  databaseURL: 'https://willicv-8d052.firebaseio.com',
+  projectId: 'willicv-8d052',
+  storageBucket: 'willicv-8d052.appspot.com',
+  messagingSenderId: '323654850234',
 };
 
 const app = Firebase.initializeApp(config);
@@ -74,7 +81,7 @@ const dataPersonalDetail = db.ref('personal_detail');
 const dataEducation = db.ref('education');
 const dataSkills = db.ref('skills');
 const dataTraining = db.ref('training');
-const dataWork = db.ref('work_experience');
+const dataWork = db.ref('work');
 const dataPublication = db.ref('publication');
 
 export default {
