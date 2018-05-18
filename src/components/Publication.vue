@@ -5,7 +5,7 @@
       <beat-loader></beat-loader>  
     </div>
     <transition-group name="list" tag="div">
-      <div v-for="p in publication" v-bind:key="p.publication" class="list-item">
+      <div v-for="p in publication.slice().reverse()" v-bind:key="p.publication" class="list-item">
         <div class="cv-block__wrapper cv-block__wrapper-publication-type">
           <h4 class="cv-block-publication-type cv-block-text">
             {{p.publication}}
