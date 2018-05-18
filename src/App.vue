@@ -4,32 +4,8 @@
       <div class="row">
         <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
           <div class="cv-section__block--left cv-section__block">
-            <div class="cv-section__block-inner cv-section__personal-main">
-              <div class="cv-section__personal-main-photo">
-                <img src="./assets/photo.jpg" class="img-responsive" alt="">
-              </div>
-              <div class="cv-block__wrapper-name cv-block__wrapper">
-                <h1 class="cv-block-name">willi</h1>
-              </div>
-              <div class="cv-block__wrapper-position cv-block__wrapper">
-                <h4 class="cv-block-position">web developer</h4>
-              </div>
-              <div class="cv-block__wrapper cv-block__wrapper-phone">
-                <h4 class="cv-block-phone">+62 857 2030 8893</h4>
-              </div>
-              <div class="cv-block__wrapper cv-block__wrapper-address">
-                <h4 class="cv-block-address">Kawista no. 3 Cigadung Bandung</h4>
-              </div>
-              <div class="cv-block__wrapper cv-block__wrapper-email">
-                <h4 class="cv-block-email">willi.ilmukomputer@gmail.com</h4>
-              </div>
-              <div class="cv-block__wrapper cv-block__wrapper-linkedin">
-                <h4 class="cv-block-linkedin">https://id.linkedin.com/in/willidev</h4>
-              </div>
-              <div class="cv-block__wrapper cv-block__wrapper-github">
-                <h4 class="cv-block-github">https://github.com/willi-dev</h4>
-              </div>
-            </div>
+            
+            <main-profile :main="main" :mainLoaded="mainLoaded"></main-profile>
             <personal-detail :personal="personal" :personalLoaded="personalLoaded"></personal-detail>
             <education :education="education" :eduLoaded="eduLoaded"></education>
             <skills :skills="skills" :skillLoaded="skillLoaded"></skills>
@@ -51,6 +27,7 @@
 
 <script>
 import Firebase from '../node_modules/firebase';
+import MainProfile from './components/MainProfile';
 import PersonalDetail from './components/PersonalDetail';
 import Education from './components/Education';
 import Skills from './components/Skills';
@@ -64,6 +41,7 @@ import config from './services/firebase';
 
 const app = Firebase.initializeApp(config);
 const db = app.database();
+const dataMainProfile = db.ref('mainprofile');
 const dataPersonalDetail = db.ref('personaldetail');
 const dataEducation = db.ref('education');
 const dataSkills = db.ref('skill');
@@ -76,6 +54,7 @@ const dataPublication = db.ref('publication');
 export default {
   name: 'app',
   components: {
+    mainProfile: MainProfile,
     personalDetail: PersonalDetail,
     education: Education,
     skills: Skills,
@@ -86,6 +65,12 @@ export default {
     publication: Publication,
   },
   firebase: {
+    main: {
+      source: dataMainProfile,
+      readyCallback: function mainReady() {
+        this.mainLoaded = true;
+      },
+    },
     personal: {
       source: dataPersonalDetail,
       readyCallback: function personalReady() {
@@ -137,6 +122,7 @@ export default {
   },
   data() {
     return {
+      mainLoaded: false,
       personalLoaded: false,
       eduLoaded: false,
       skillLoaded: false,
