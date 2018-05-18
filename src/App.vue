@@ -2,7 +2,7 @@
   <div id="app">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <div class="cv-section__block--left cv-section__block">
             
             <main-profile :main="main" :mainLoaded="mainLoaded"></main-profile>
@@ -11,15 +11,12 @@
             <skills :skills="skills" :skillLoaded="skillLoaded"></skills>
             <related :related="related" :relatedLoaded="relatedLoaded"></related>
             <training :training="training" :trainingLoaded="trainingLoaded"></training>
-          </div>  
-        </div>
-        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
-          <div class="cv-section__block--right cv-section__block">
             <workExperience :work="work" :workLoaded="workLoaded"></workExperience>
             <project :project="project" :projectLoaded="projectLoaded"></project>
             <publication :publication="publication" :publicationLoaded="publicationLoaded"></publication>
-          </div>
+          </div>  
         </div>
+        
       </div>
     </div>
   </div>
@@ -162,6 +159,7 @@ export default {
     transform: translateY(0);
   }
 
+
   .cv-container__loader{
     position: relative;
     height: 100px;
@@ -176,34 +174,4 @@ export default {
     transform: translate(-50%, -50%);
   }
 
-  .cv{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    .cv-block-text{
-      font-size: 1.6rem;
-    }
-
-    &-section__block{
-      &--left{
-        .cv-section__block-title{
-          text-align: right;
-          @media screen and (max-width: 767px){
-            text-align: left;
-          }
-        }
-      }
-      &--right{
-        .cv-section__block-title{
-          text-align: left;
-        }
-      }
-
-      &-title{
-        font-family: $bebasneue;
-        color: $greylight-3;
-        border-bottom: 1px dashed $greylight-2;
-        padding-bottom: 1rem;
-      }
-    }
-  }
 </style>

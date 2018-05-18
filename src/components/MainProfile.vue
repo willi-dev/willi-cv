@@ -1,6 +1,6 @@
 <template>
   <div class="cv-section__block-inner cv-section__personal-detail">
-    test
+    
     <div class="cv-container__loader" v-if="mainLoaded==false">
       <beat-loader></beat-loader>
     </div>
