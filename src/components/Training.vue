@@ -1,8 +1,8 @@
 <template>
 	<div class="">
-    Training
+    <title-section title="Training"></title-section>
     <div class="cv-container__loader" v-if="trainingLoaded==false">
-	    <beat-loader></beat-loader>
+	    <loading></loading>
     </div>
     <transition-group name="list" tag="div">
 	    <div v-for="(train, index) in training.slice().reverse()" v-bind:key="`train-${index}`" class="list-item">
@@ -13,9 +13,16 @@
 </template>
 
 <script>
+import Loading from './general/Loading';
+import TitleSection from './general/TitleSection';
+
 export default {
   name: 'training',
   props: ['training', 'trainingLoaded'],
+  components: {
+    Loading,
+    TitleSection,
+  },
 };
 </script>
 

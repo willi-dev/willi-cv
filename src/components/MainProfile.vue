@@ -1,8 +1,8 @@
 <template>
   <div class="cv-section__block-inner cv-section__personal-detail">
-    
-    <div class="cv-container__loader" v-if="mainLoaded==false">
-      <beat-loader></beat-loader>
+    <title-section title="Main Profile"></title-section>
+    <div class="" v-if="mainLoaded==false">
+      <loading></loading>
     </div>
     <transition-group name="list" tag="div">
       <div v-for="(m, index) in main" v-bind:key="`m-${index}`" class="list-item">
@@ -19,13 +19,15 @@
 </template>
 
 <script>
-import BeatLoader from '../../node_modules/vue-spinner/src/BeatLoader';
+import Loading from './general/Loading';
+import TitleSection from './general/TitleSection';
 
 export default {
   name: 'main-profile',
   props: ['main', 'mainLoaded'],
   components: {
-    BeatLoader,
+    Loading,
+    TitleSection,
   },
 };
 </script>

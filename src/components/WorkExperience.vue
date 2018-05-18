@@ -1,8 +1,8 @@
 <template>
   <div class="">
-    Work Experience
+    <title-section title="Work Experience"></title-section>
     <div class="cv-container__loader" v-if="workLoaded==false" >
-			<beat-loader></beat-loader>
+			<loading></loading>
     </div>
     <transition-group name="list" tag="div">
       <div v-for="(exp, index) in work.slice().reverse()" :key="`exp-${index}`" class="list-item">
@@ -13,9 +13,16 @@
 </template>
 
 <script>
+import Loading from './general/Loading';
+import TitleSection from './general/TitleSection';
+
 export default {
   name: 'work-experience',
   props: ['work', 'workLoaded'],
+  components: {
+    Loading,
+    TitleSection,
+  },
 };
 </script>
 

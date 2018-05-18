@@ -4,7 +4,6 @@
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <div class="cv-section__block--left cv-section__block">
-            
             <main-profile :main="main" :mainLoaded="mainLoaded"></main-profile>
             <personal-detail :personal="personal" :personalLoaded="personalLoaded"></personal-detail>
             <education :education="education" :eduLoaded="eduLoaded"></education>
@@ -143,35 +142,7 @@ export default {
 <style lang="scss">
   // always load
   @import './assets/scss/cv-typography.scss';
-
   // always load in every component for read variables
   @import './assets/scss/cv-variables.scss';
-
-  .list-item {
-    // display: inline-block;
-    // margin-right: 10px;
-  }
-  .list-enter-active, .list-leave-active {
-    transition: all 1s;
-  }
-  .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
-    opacity: 0;
-    transform: translateY(0);
-  }
-
-
-  .cv-container__loader{
-    position: relative;
-    height: 100px;
-    width: 100%;
-  }
-  .v-spinner{
-    width: 20%;
-    top: 50%;
-    left: 50%;
-    text-align: center;
-    position: absolute;
-    transform: translate(-50%, -50%);
-  }
 
 </style>

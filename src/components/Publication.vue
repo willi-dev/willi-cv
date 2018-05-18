@@ -1,8 +1,8 @@
 <template>
 	<div class="">
-    Publication Research
+    <title-section title="Publication Research"></title-section>
     <div class="cv-container__loader" v-if="publicationLoaded==false">
-      <beat-loader></beat-loader>  
+      <loading></loading>
     </div>
     <transition-group name="list" tag="div">
       <div v-for="(p, index) in publication.slice().reverse()" v-bind:key="`p-${index}`" class="list-item">
@@ -15,9 +15,16 @@
 </template>
 
 <script>
+import Loading from './general/Loading';
+import TitleSection from './general/TitleSection';
+
 export default {
   name: 'publication',
   props: ['publication', 'publicationLoaded'],
+  components: {
+    Loading,
+    TitleSection,
+  },
 };
 </script>
 
