@@ -5,7 +5,7 @@
       <beat-loader></beat-loader>
     </div>
     <transition-group name="list" tag="div">
-      <div v-for="prj in project" :key="prj.name" class="list-item">
+      <div v-for="prj in project.slice().reverse()" :key="prj.name" class="list-item">
         <div class="cv-block__wrapper cv-block__wrapper-company">
           <h4 class="cv-block-company cv-block-text">{{prj.name}} | {{prj.company}} <span class="duration">{{prj.period}}</span></h4>  
           <p>{{prj.description}}</p>

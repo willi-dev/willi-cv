@@ -5,7 +5,7 @@
 	    <beat-loader></beat-loader>
     </div>
     <transition-group name="list" tag="div">
-	    <div v-for="train in training" v-bind:key="train.name" class="list-item">
+	    <div v-for="train in training.slice().reverse()" v-bind:key="train.name" class="list-item">
 	    	<div class="cv-block__wrapper cv-block__wrapper-training-name">
 	    		<h4 class="cv-block-training-name cv-block-text">{{train.name}}</h4>
 	    	</div>
