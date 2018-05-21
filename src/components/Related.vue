@@ -1,13 +1,13 @@
 <template>
-  <div class="">
-    <title-section title="Related"></title-section>
+  <div class="cv-decorator__border-bottom cv-decorator__padding-y">
+    <title-section title="Related Development Tools"></title-section>
     <div class="cv-container__loader" v-if="relatedLoaded==false">
       <loading></loading>
     </div>
-    <transition-group name="list" tag="div">
-      <div v-for="(rel, index) in related.slice().reverse()" v-bind:key="`rel-${index}`" class="list-item">
+    <transition-group name="list" tag="span">
+      <span v-for="(rel, index) in related.slice().reverse()" v-bind:key="`rel-${index}`" class="cv-item v-item__tools cv-decorator__font-fam">
         {{rel.relatedtools}}
-      </div>
+      </span>
     </transition-group>
   </div>
 </template>
@@ -27,5 +27,5 @@ export default {
 </script>
 
 <style lang="scss">
-  
+  @import '../assets/scss/variables.scss';
 </style>

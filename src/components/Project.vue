@@ -4,12 +4,15 @@
     <div class="cv-container__loader" v-if="projectLoaded==false" >
       <loading></loading>
     </div>
-    <transition-group name="list" tag="div">
-      <div v-for="(prj, index) in project.slice().reverse()" :key="`prj-${index}`" class="list-item">
-        {{prj.name}} | {{prj.company}} <span class="duration">{{prj.period}}</span>
-          <p>{{prj.description}}</p>
-      </div>
-    </transition-group>
+    <div class="cv-decorator__font-fam cv-container__list">
+      <transition-group name="list" tag="ol">
+        <li v-for="(prj, index) in project.slice().reverse()" :key="`prj-${index}`" class="list-item">
+          <p class="cv-section__project-name ">{{prj.name}} | {{prj.company}}</p>
+          <p class="cv-section__project_period duration">{{prj.period}}</p>
+          <p class="cv-section__project-description">{{prj.description}}</p>
+        </li>
+      </transition-group>
+    </div>
   </div>
 </template>
 
@@ -28,5 +31,12 @@ export default {
 </script>
 
 <style lang="scss">
-  
+@import '../assets/scss/variables.scss';
+
+.cv-section{
+  &__project-name{
+    font-weight: $semi-bold;
+    font-size: 1.7rem;
+  }
+}
 </style>

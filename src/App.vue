@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div class="container">
+    <div class="container cv-container__app">
       <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
           <div class="cv-section__block--left cv-section__block">
             <main-profile :main="main" :mainLoaded="mainLoaded"></main-profile>
             <personal-detail :personal="personal" :personalLoaded="personalLoaded"></personal-detail>
@@ -141,8 +141,56 @@ export default {
 
 <style lang="scss">
   // always load
-  @import './assets/scss/cv-typography.scss';
+  @import './assets/scss/typography.scss';
   // always load in every component for read variables
-  @import './assets/scss/cv-variables.scss';
+  @import './assets/scss/variables.scss';
+  
+  p, ol, ul{
+    margin: 0;
+  }
+
+  .cv-container{
+    &__app{
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    &__list{
+      ol{
+        padding-left: 2rem;
+      }
+
+    }
+  }
+
+  .cv-decorator{
+
+    &__font-fam{
+      font-family: $cormorant;
+      font-size: 1.5rem;
+    }
+    
+    &__padding-y{
+      padding: 1rem 0;
+    }
+    &__padding-top{
+      padding-top: 1rem;
+    }
+    &__padding-bottom{
+      padding-bottom: 1rem;
+    }
+
+    
+    &__border-bottom{
+      border-bottom: 1px dashed $greylight-3;
+    }
+  }
+  
+
+
+  .cv-item{
+    margin: 0 4px;
+    text-decoration: underline;
+  }
 
 </style>

@@ -1,13 +1,13 @@
 <template>
-	<div class="">
+	<div class="cv-decorator__border-bottom cv-decorator__padding-y">
     <title-section title="Skill"></title-section>
     <div class="cv-container__loader" v-if="skillLoaded==false">
       <loading></loading>
     </div>
-    <transition-group name="list" tag="div">
-      <div v-for="(sk, index) in skills.slice().reverse()" v-bind:key="`sk-${index}`" class="list-item">
+    <transition-group name="list" tag="span">
+      <span v-for="(sk, index) in skills.slice().reverse()" v-bind:key="`sk-${index}`" class="cv-item cv-item__skill cv-decorator__font-fam">
         {{sk.skill}}
-      </div>
+      </span>
     </transition-group>
   </div>
 </template>
@@ -27,6 +27,7 @@ export default {
 </script>
 
 <style lang="scss">
-	@import '../assets/scss/cv-variables.scss';
+	@import '../assets/scss/variables.scss';
   
+
 </style>

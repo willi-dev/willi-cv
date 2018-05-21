@@ -1,5 +1,5 @@
 <template>
-  <h1>{{title}}</h1>
+  <p class="cv-section__title cv-decorator__font-fam">{{title}}</p>
 </template>
 
 <script>
@@ -10,5 +10,12 @@ export default {
 </script>
 
 <style lang="scss">
-  
+@import '../../assets/scss/variables.scss';
+
+.cv{
+  &-section__title{
+    font-size: 2.4rem;
+  }
+}
+
 </style>
