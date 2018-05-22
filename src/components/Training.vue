@@ -1,55 +1,37 @@
 <template>
-	<div class="cv-section__block-inner cv-section__training">
-    <h3 class="cv-section__block-title">Training</h3>
+	<div class="cv-decorator__border-bottom cv-decorator__padding-y">
+    <title-section title="Training"></title-section>
     <div class="cv-container__loader" v-if="trainingLoaded==false">
-	    <beat-loader></beat-loader>
+	    <loading></loading>
     </div>
-    <transition-group name="list" tag="div">
-	    <div v-for="train in training.slice().reverse()" v-bind:key="train.name" class="list-item">
-	    	<div class="cv-block__wrapper cv-block__wrapper-training-name">
-	    		<h4 class="cv-block-training-name cv-block-text">{{train.name}}</h4>
-	    	</div>
-	    	<div class="cv-block__wrapper cv-block__wrapper-training-year">
-	    		<h4 class="cv-block-training-year cv-block-text">{{train.place}} ( {{train.year}} )</h4>
-	    	</div>
-	    </div>
-	  </transition-group>
+    <div class="cv-decorator__font-fam cv-container__list">
+      <transition-group name="list" tag="ol">
+  	    <li v-for="(train, index) in training.slice().reverse()" v-bind:key="`train-${index}`" class="list-item">
+          <p class="cv-section__training-name">
+            {{train.name}} ( {{train.year}} )
+          </p>
+          <p class="cv-section__training-place">{{train.place}}</p>
+  	    </li>
+  	  </transition-group>
+    </div>
   </div>
 </template>
 
 <script>
-import BeatLoader from '../../node_modules/vue-spinner/src/BeatLoader';
+import Loading from './general/Loading';
+import TitleSection from './general/TitleSection';
 
 export default {
   name: 'training',
   props: ['training', 'trainingLoaded'],
   components: {
-    BeatLoader,
+    Loading,
+    TitleSection,
   },
 };
 </script>
 
 <style lang="scss">
-	@import '../assets/scss/cv-variables.scss';
-	.cv{
-		&-section__training{
-			text-align: right;
-			font-family: $raleway;
-			@media screen and (max-width: 767px){
-        text-align: left;
-      }
-			.cv-block__wrapper{
-				font-family: $raleway;
-				color: $greylight-3;
-			}
-			.cv-block-text{
-				font-weight: $light;
-				line-height: .8;
-			}
-			.cv-block-training-name{
-				color: $black;
-				font-weight: $bold;
-			}
-		}
-	}
+	@import '../assets/scss/variables.scss';
+	
 </style>

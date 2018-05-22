@@ -1,70 +1,36 @@
 <template>
-  <div class="cv-section__block-inner cv-section__work-experience">
-    <h3 class="cv-section__block-title">Work Experience</h3>
+  <div class="cv-decorator__border-bottom cv-decorator__padding-y">
+    <title-section title="Work Experience"></title-section>
     <div class="cv-container__loader" v-if="workLoaded==false" >
-			<beat-loader></beat-loader>
+			<loading></loading>
     </div>
-    <transition-group name="list" tag="div">
-      <div v-for="exp in work.slice().reverse()" :key="exp.company" class="list-item">
-        <div class="cv-block__wrapper cv-block__wrapper-company">
-          <h4 class="cv-block-company cv-block-text">{{exp.position}} | {{exp.company}} <span class="duration">{{exp.period}}</span></h4>  
-        </div>
-      </div>
-    </transition-group>
+    <div class="cv-decorator__font-fam cv-container__list">
+      <transition-group name="list" tag="ol">
+        <li v-for="(exp, index) in work.slice().reverse()" :key="`exp-${index}`" class="list-item">
+          <p class="cv-section__work-position ">{{exp.position}} | {{exp.period}}</p> 
+          <p class="cv-section__work-company ">{{exp.company}}</p> 
+          <p class="cv-section__work-desc ">{{exp.description}}</p>
+        </li>
+      </transition-group>
+    </div>
   </div>
 </template>
 
 <script>
-import BeatLoader from '../../node_modules/vue-spinner/src/BeatLoader';
+import Loading from './general/Loading';
+import TitleSection from './general/TitleSection';
 
 export default {
   name: 'work-experience',
   props: ['work', 'workLoaded'],
   components: {
-    BeatLoader,
+    Loading,
+    TitleSection,
   },
 };
 </script>
 
 <style lang="scss">
   // always load in every component for read variables
-  @import '../assets/scss/cv-variables.scss';
-  .cv{
-    &-section__work-experience{
-      text-align: left;
-      .cv-block__wrapper{
-        font-family: $raleway;
-        color: $greydark;
-      }
-      .cv-block__wrapper-projects{
-        padding-left: .5rem;
-        font-size: 1.3rem;
-      }
-      .cv-block-company{
-        font-weight: $bold;
-        .duration{
-          font-weight: $normal;
-          color: $greylight-2;
-        }
-      }
-      .cv-block-project-title,
-      .cv-block-project-desc,
-      .cv-block-project-url{
-        font-size: 1.5rem;
-        color: $greylight-1;
-        font-weight: $light;
-      }
-      // .cv-block-project-title{
-      //   font-weight: $normal;
-      // }
-      .cv-block-project-title,
-      .cv-block-project-desc{
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-      .cv-block-project-url{
-        margin-top: 0;
-      }
-    }
-  }
+  @import '../assets/scss/variables.scss';
 </style>

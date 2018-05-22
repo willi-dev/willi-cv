@@ -1,33 +1,31 @@
 <template>
-  <div class="cv-section__block-inner cv-section__skills">
-    <h3 class="cv-section__block-title">Related</h3>
+  <div class="cv-decorator__border-bottom cv-decorator__padding-y">
+    <title-section title="Related Development Tools"></title-section>
     <div class="cv-container__loader" v-if="relatedLoaded==false">
-      <beat-loader></beat-loader>
+      <loading></loading>
     </div>
-    <transition-group name="list" tag="div">
-      <div v-for="rel in related.slice().reverse()" v-bind:key="rel.relatedtools" class="list-item">
-        <div class="cv-block__wrapper cv-block__wrapper-skills-main">
-          <h4 class="cv-block-skills-main cv-block-text">
-            {{rel.relatedtools}}
-          </h4>
-        </div>
-      </div>
+    <transition-group name="list" tag="span">
+      <span v-for="(rel, index) in related.slice().reverse()" v-bind:key="`rel-${index}`" class="cv-item v-item__tools cv-decorator__font-fam">
+        {{rel.relatedtools}}
+      </span>
     </transition-group>
   </div>
 </template>
 
 <script>
-import BeatLoader from '../../node_modules/vue-spinner/src/BeatLoader';
+import Loading from './general/Loading';
+import TitleSection from './general/TitleSection';
 
 export default {
   name: 'related',
   props: ['related', 'relatedLoaded'],
   components: {
-    BeatLoader,
+    Loading,
+    TitleSection,
   },
 };
 </script>
 
 <style lang="scss">
-  
+  @import '../assets/scss/variables.scss';
 </style>
