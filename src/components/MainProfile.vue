@@ -50,10 +50,12 @@ export default {
   .cv-section{
     &__name-profile{
       font-size: 2.4rem;
+      letter-spacing: 1px;
     }
 
     &__job-title{
       font-size: 2rem;
+      letter-spacing: 1px;
     }
 
     &__phone{

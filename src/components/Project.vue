@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="cv-decorator__border-bottom cv-decorator__padding-y">
     <title-section title="Project"></title-section>
     <div class="cv-container__loader" v-if="projectLoaded==false" >
       <loading></loading>
@@ -36,7 +36,7 @@ export default {
 .cv-section{
   &__project-name{
     font-weight: $semi-bold;
-    font-size: 1.7rem;
+    font-size: 1.3rem;
   }
 }
 </style>

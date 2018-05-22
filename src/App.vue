@@ -165,11 +165,16 @@ export default {
 
   .cv-decorator{
 
-    &__font-fam{
-      font-family: $cormorant;
-      font-size: 1.5rem;
+    &__font-title{
+      font-family: $lato;
+
     }
-    
+    &__font-fam{
+      font-family: $tienne;
+      font-size: 1.2rem;
+      // color: $greylight-1;
+    }
+
     &__padding-y{
       padding: 1rem 0;
     }
